@@ -447,16 +447,14 @@
             display: none;
         }
 
-        .menu-emblem {
+        .menu-photo {
             width: 72px;
             height: 72px;
-            display: grid;
-            place-items: center;
+            display: block;
             border: 1px solid #cfbd9d;
             border-radius: 50%;
-            color: var(--wine);
+            object-fit: cover;
             background: #f8f2e7;
-            font-size: 28px;
         }
 
         .menu-copy h3 {
@@ -698,9 +696,8 @@
             box-shadow: 0 10px 24px rgba(0, 0, 0, .24);
         }
 
-        html[data-theme="dark"] .menu-emblem {
+        html[data-theme="dark"] .menu-photo {
             border-color: #786443;
-            color: #e5d0ad;
             background: #3b3230;
         }
 
@@ -821,10 +818,9 @@
                 padding: 17px;
             }
 
-            .menu-emblem {
+            .menu-photo {
                 width: 60px;
                 height: 60px;
-                font-size: 24px;
             }
 
             .menu-copy h3 {
@@ -881,10 +877,9 @@
                 padding: 14px 12px;
             }
 
-            .menu-emblem {
+            .menu-photo {
                 width: 50px;
                 height: 50px;
-                font-size: 21px;
             }
 
             .menu-price {
@@ -947,62 +942,208 @@
                 <div class="section-heading">
                     <p class="section-kicker">FROM MY LITTLE KITCHEN</p>
                     <h2 id="menu-title">오늘의 메뉴</h2>
-                    <p class="section-intro">제가 좋아하는 풍미를 한 잔과 한 접시에 담았습니다.</p>
+                    <p class="section-intro">커피, 차, 디저트 각 8가지 메뉴를 준비했습니다.</p>
                 </div>
                 <div class="menu-filters" role="group" aria-label="메뉴 종류 선택">
                     <button class="filter-button" type="button" data-filter="all" aria-pressed="true">전체</button>
-                    <button class="filter-button" type="button" data-filter="coffee" aria-pressed="false">커피</button>
-                    <button class="filter-button" type="button" data-filter="tea" aria-pressed="false">차</button>
-                    <button class="filter-button" type="button" data-filter="dessert" aria-pressed="false">디저트</button>
+                    <button class="filter-button" type="button" data-filter="coffee" aria-pressed="false">커피 8</button>
+                    <button class="filter-button" type="button" data-filter="tea" aria-pressed="false">차 8</button>
+                    <button class="filter-button" type="button" data-filter="dessert" aria-pressed="false">디저트 8</button>
                 </div>
                 <div class="menu-grid" id="menu-grid">
                     <article class="menu-card" data-category="coffee">
-                        <div class="menu-emblem" aria-hidden="true">♨</div>
+                        <img class="menu-photo" src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&amp;fit=crop&amp;w=240&amp;h=240&amp;q=80" alt="에스프레소 커피 사진" loading="lazy" decoding="async">
                         <div class="menu-copy">
-                            <h3>오래된 아메리카노</h3>
-                            <p>고소한 원두와 은은한 다크초콜릿 향</p>
+                            <h3>에스프레소</h3>
+                            <p>진하게 추출한 커피 원액</p>
                         </div>
-                        <span class="menu-price">4,500원</span>
+                        <span class="menu-price">3,500원</span>
                     </article>
                     <article class="menu-card" data-category="coffee">
-                        <div class="menu-emblem" aria-hidden="true">❧</div>
+                        <img class="menu-photo" src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&amp;fit=crop&amp;w=240&amp;h=240&amp;q=80" alt="아메리카노 커피 사진" loading="lazy" decoding="async">
                         <div class="menu-copy">
-                            <h3>황금빛 카페라테</h3>
-                            <p>부드러운 우유 거품을 올린 시그니처 라테</p>
+                            <h3>아메리카노</h3>
+                            <p>에스프레소와 물로 깔끔하게 내린 커피</p>
+                        </div>
+                        <span class="menu-price">4,000원</span>
+                    </article>
+                    <article class="menu-card" data-category="coffee">
+                        <img class="menu-photo" src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&amp;fit=crop&amp;w=240&amp;h=240&amp;q=80" alt="카페라테 커피 사진" loading="lazy" decoding="async">
+                        <div class="menu-copy">
+                            <h3>카페라테</h3>
+                            <p>에스프레소와 스팀 밀크의 조화</p>
+                        </div>
+                        <span class="menu-price">4,800원</span>
+                    </article>
+                    <article class="menu-card" data-category="coffee">
+                        <img class="menu-photo" src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&amp;fit=crop&amp;w=240&amp;h=240&amp;q=80" alt="바닐라라테 커피 사진" loading="lazy" decoding="async">
+                        <div class="menu-copy">
+                            <h3>바닐라라테</h3>
+                            <p>바닐라 시럽을 더한 부드러운 라테</p>
                         </div>
                         <span class="menu-price">5,300원</span>
                     </article>
-                    <article class="menu-card" data-category="tea">
-                        <div class="menu-emblem" aria-hidden="true">♧</div>
+                    <article class="menu-card" data-category="coffee">
+                        <img class="menu-photo" src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&amp;fit=crop&amp;w=240&amp;h=240&amp;q=80" alt="카푸치노 커피 사진" loading="lazy" decoding="async">
                         <div class="menu-copy">
-                            <h3>장미와 얼그레이</h3>
-                            <p>베르가못 향에 장미를 더한 따뜻한 홍차</p>
+                            <h3>카푸치노</h3>
+                            <p>에스프레소 위에 풍성한 우유 거품을 올린 커피</p>
                         </div>
                         <span class="menu-price">5,000원</span>
                     </article>
-                    <article class="menu-card" data-category="dessert">
-                        <div class="menu-emblem" aria-hidden="true">✧</div>
+                    <article class="menu-card" data-category="coffee">
+                        <img class="menu-photo" src="https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&amp;fit=crop&amp;w=240&amp;h=240&amp;q=80" alt="카라멜 마키아토 커피 사진" loading="lazy" decoding="async">
                         <div class="menu-copy">
-                            <h3>바닐라 빈 타르트</h3>
-                            <p>바삭한 타르트와 향긋한 바닐라 크림</p>
+                            <h3>카라멜 마키아토</h3>
+                            <p>바닐라라테에 카라멜을 더한 달콤한 커피</p>
+                        </div>
+                        <span class="menu-price">5,500원</span>
+                    </article>
+                    <article class="menu-card" data-category="coffee">
+                        <img class="menu-photo" src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&amp;fit=crop&amp;w=240&amp;h=240&amp;q=80" alt="카페모카 커피 사진" loading="lazy" decoding="async">
+                        <div class="menu-copy">
+                            <h3>카페모카</h3>
+                            <p>에스프레소와 초콜릿, 우유를 넣은 커피</p>
+                        </div>
+                        <span class="menu-price">5,500원</span>
+                    </article>
+                    <article class="menu-card" data-category="coffee">
+                        <img class="menu-photo" src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&amp;fit=crop&amp;w=240&amp;h=240&amp;q=80" alt="콜드브루 커피 사진" loading="lazy" decoding="async">
+                        <div class="menu-copy">
+                            <h3>콜드브루</h3>
+                            <p>찬물로 오랜 시간 추출한 부드러운 커피</p>
+                        </div>
+                        <span class="menu-price">5,000원</span>
+                    </article>
+
+                    <article class="menu-card" data-category="tea">
+                        <img class="menu-photo" src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&amp;fit=crop&amp;w=240&amp;h=240&amp;q=80" alt="얼그레이 홍차 사진" loading="lazy" decoding="async">
+                        <div class="menu-copy">
+                            <h3>얼그레이 홍차</h3>
+                            <p>베르가못 향을 더한 클래식 홍차</p>
+                        </div>
+                        <span class="menu-price">4,800원</span>
+                    </article>
+                    <article class="menu-card" data-category="tea">
+                        <img class="menu-photo" src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&amp;fit=crop&amp;w=240&amp;h=240&amp;q=80" alt="캐모마일 차 사진" loading="lazy" decoding="async">
+                        <div class="menu-copy">
+                            <h3>캐모마일 티</h3>
+                            <p>은은한 꽃향이 편안한 허브차</p>
+                        </div>
+                        <span class="menu-price">4,800원</span>
+                    </article>
+                    <article class="menu-card" data-category="tea">
+                        <img class="menu-photo" src="https://images.unsplash.com/photo-1571934811356-5cc061b6821f?auto=format&amp;fit=crop&amp;w=240&amp;h=240&amp;q=80" alt="페퍼민트 차 사진" loading="lazy" decoding="async">
+                        <div class="menu-copy">
+                            <h3>페퍼민트 티</h3>
+                            <p>산뜻한 민트 향의 무카페인 허브차</p>
+                        </div>
+                        <span class="menu-price">4,800원</span>
+                    </article>
+                    <article class="menu-card" data-category="tea">
+                        <img class="menu-photo" src="https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?auto=format&amp;fit=crop&amp;w=240&amp;h=240&amp;q=80" alt="자스민 그린티 사진" loading="lazy" decoding="async">
+                        <div class="menu-copy">
+                            <h3>자스민 그린티</h3>
+                            <p>녹차에 자스민 꽃향을 더한 차</p>
+                        </div>
+                        <span class="menu-price">4,800원</span>
+                    </article>
+                    <article class="menu-card" data-category="tea">
+                        <img class="menu-photo" src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&amp;fit=crop&amp;w=240&amp;h=240&amp;q=80" alt="루이보스 차 사진" loading="lazy" decoding="async">
+                        <div class="menu-copy">
+                            <h3>루이보스 티</h3>
+                            <p>구수하고 부드러운 남아프리카 허브차</p>
+                        </div>
+                        <span class="menu-price">4,800원</span>
+                    </article>
+                    <article class="menu-card" data-category="tea">
+                        <img class="menu-photo" src="https://images.unsplash.com/photo-1542728928-1413d1894ed1?auto=format&amp;fit=crop&amp;w=240&amp;h=240&amp;q=80" alt="유자차 사진" loading="lazy" decoding="async">
+                        <div class="menu-copy">
+                            <h3>유자차</h3>
+                            <p>유자청을 넣어 달콤하게 즐기는 차</p>
+                        </div>
+                        <span class="menu-price">5,000원</span>
+                    </article>
+                    <article class="menu-card" data-category="tea">
+                        <img class="menu-photo" src="https://images.unsplash.com/photo-1515823064-d6e0c04616a7?auto=format&amp;fit=crop&amp;w=240&amp;h=240&amp;q=80" alt="레몬 생강차 사진" loading="lazy" decoding="async">
+                        <div class="menu-copy">
+                            <h3>레몬 생강차</h3>
+                            <p>레몬의 산뜻함과 생강의 알싸한 풍미</p>
+                        </div>
+                        <span class="menu-price">5,000원</span>
+                    </article>
+                    <article class="menu-card" data-category="tea">
+                        <img class="menu-photo" src="https://images.unsplash.com/photo-1577968897966-3d4325b36b61?auto=format&amp;fit=crop&amp;w=240&amp;h=240&amp;q=80" alt="복숭아 아이스티 사진" loading="lazy" decoding="async">
+                        <div class="menu-copy">
+                            <h3>복숭아 아이스티</h3>
+                            <p>복숭아 향을 더해 시원하게 즐기는 홍차</p>
+                        </div>
+                        <span class="menu-price">5,500원</span>
+                    </article>
+
+                    <article class="menu-card" data-category="dessert">
+                        <img class="menu-photo" src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&amp;fit=crop&amp;w=240&amp;h=240&amp;q=80" alt="바스크 치즈케이크 사진" loading="lazy" decoding="async">
+                        <div class="menu-copy">
+                            <h3>바스크 치즈케이크</h3>
+                            <p>겉은 진하게 구워내고 속은 촉촉한 치즈케이크</p>
+                        </div>
+                        <span class="menu-price">6,500원</span>
+                    </article>
+                    <article class="menu-card" data-category="dessert">
+                        <img class="menu-photo" src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&amp;fit=crop&amp;w=240&amp;h=240&amp;q=80" alt="티라미수 디저트 사진" loading="lazy" decoding="async">
+                        <div class="menu-copy">
+                            <h3>티라미수</h3>
+                            <p>에스프레소에 적신 시트와 마스카포네 크림</p>
+                        </div>
+                        <span class="menu-price">6,500원</span>
+                    </article>
+                    <article class="menu-card" data-category="dessert">
+                        <img class="menu-photo" src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&amp;fit=crop&amp;w=240&amp;h=240&amp;q=80" alt="초콜릿 케이크 사진" loading="lazy" decoding="async">
+                        <div class="menu-copy">
+                            <h3>초콜릿 케이크</h3>
+                            <p>진한 코코아 크림을 올린 촉촉한 케이크</p>
+                        </div>
+                        <span class="menu-price">6,500원</span>
+                    </article>
+                    <article class="menu-card" data-category="dessert">
+                        <img class="menu-photo" src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?auto=format&amp;fit=crop&amp;w=240&amp;h=240&amp;q=80" alt="바닐라 타르트 사진" loading="lazy" decoding="async">
+                        <div class="menu-copy">
+                            <h3>바닐라 타르트</h3>
+                            <p>바삭한 타르트에 바닐라 크림을 채운 디저트</p>
                         </div>
                         <span class="menu-price">6,200원</span>
                     </article>
                     <article class="menu-card" data-category="dessert">
-                        <div class="menu-emblem" aria-hidden="true">❋</div>
+                        <img class="menu-photo" src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?auto=format&amp;fit=crop&amp;w=240&amp;h=240&amp;q=80" alt="레몬 마들렌 사진" loading="lazy" decoding="async">
                         <div class="menu-copy">
-                            <h3>밤의 초콜릿 케이크</h3>
-                            <p>진한 카카오와 마스카포네 크림의 조화</p>
+                            <h3>레몬 마들렌</h3>
+                            <p>레몬 향을 입힌 한입 크기의 구움과자</p>
                         </div>
-                        <span class="menu-price">6,500원</span>
+                        <span class="menu-price">3,200원</span>
                     </article>
-                    <article class="menu-card" data-category="tea">
-                        <div class="menu-emblem" aria-hidden="true">❦</div>
+                    <article class="menu-card" data-category="dessert">
+                        <img class="menu-photo" src="https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&amp;fit=crop&amp;w=240&amp;h=240&amp;q=80" alt="버터 스콘 사진" loading="lazy" decoding="async">
                         <div class="menu-copy">
-                            <h3>계절 과일차</h3>
-                            <p>제철 과일을 천천히 우려낸 향긋한 차</p>
+                            <h3>버터 스콘</h3>
+                            <p>겉은 바삭하고 속은 포슬한 플레인 스콘</p>
                         </div>
-                        <span class="menu-price">5,500원</span>
+                        <span class="menu-price">3,800원</span>
+                    </article>
+                    <article class="menu-card" data-category="dessert">
+                        <img class="menu-photo" src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&amp;fit=crop&amp;w=240&amp;h=240&amp;q=80" alt="크루아상 페이스트리 사진" loading="lazy" decoding="async">
+                        <div class="menu-copy">
+                            <h3>버터 크루아상</h3>
+                            <p>겹겹이 접어 구운 고소한 페이스트리</p>
+                        </div>
+                        <span class="menu-price">4,200원</span>
+                    </article>
+                    <article class="menu-card" data-category="dessert">
+                        <img class="menu-photo" src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&amp;fit=crop&amp;w=240&amp;h=240&amp;q=80" alt="딸기 쇼트케이크 사진" loading="lazy" decoding="async">
+                        <div class="menu-copy">
+                            <h3>딸기 쇼트케이크</h3>
+                            <p>생크림과 딸기를 층층이 쌓은 케이크</p>
+                        </div>
+                        <span class="menu-price">7,000원</span>
                     </article>
                 </div>
             </div>

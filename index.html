@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -100,6 +100,38 @@
         .main-nav a:hover,
         .main-nav a:focus-visible {
             color: var(--gold-light);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .theme-toggle {
+            width: 40px;
+            height: 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(215, 195, 151, .45);
+            border-radius: 50%;
+            color: var(--gold-light);
+            background: transparent;
+            font-size: 19px;
+            cursor: pointer;
+            transition: background-color .2s ease, border-color .2s ease;
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--gold-light);
+            background: rgba(215, 195, 151, .12);
+        }
+
+        .theme-toggle:focus-visible,
+        .nav-toggle:focus-visible {
+            outline: 2px solid var(--gold-light);
+            outline-offset: 3px;
         }
 
         .nav-toggle {
@@ -608,6 +640,91 @@
             color: #d7c397;
         }
 
+        html[data-theme="dark"] {
+            color-scheme: dark;
+            --ink: #eee6dc;
+            --wine: #e3cda9;
+            --wine-dark: #171415;
+            --cream: #e9e0d5;
+            --paper: #262122;
+            --gold: #b89860;
+            --gold-light: #ddc99f;
+            --muted: #b9ada1;
+            --line: #49403b;
+        }
+
+        html[data-theme="dark"] body {
+            background: #201c1d;
+        }
+
+        html[data-theme="dark"] .menu-section {
+            background:
+                radial-gradient(ellipse at 50% 10%, rgba(80, 65, 58, .38), transparent 58%),
+                #242021;
+        }
+
+        html[data-theme="dark"] .section-heading h2,
+        html[data-theme="dark"] .menu-copy h3 {
+            color: #e5d0ad;
+        }
+
+        html[data-theme="dark"] .section-kicker {
+            color: #d1b987;
+        }
+
+        html[data-theme="dark"] .section-intro {
+            color: #c1b6aa;
+        }
+
+        html[data-theme="dark"] .filter-button {
+            border-color: #5b4c42;
+            color: #e2d4c2;
+        }
+
+        html[data-theme="dark"] .filter-button:hover,
+        html[data-theme="dark"] .filter-button[aria-pressed="true"] {
+            border-color: #9c7951;
+            color: #211b19;
+            background: #d2b582;
+        }
+
+        html[data-theme="dark"] .menu-card {
+            border-color: #4a3e39;
+            background: #30292a;
+        }
+
+        html[data-theme="dark"] .menu-card:hover {
+            border-color: #9c8057;
+            box-shadow: 0 10px 24px rgba(0, 0, 0, .24);
+        }
+
+        html[data-theme="dark"] .menu-emblem {
+            border-color: #786443;
+            color: #e5d0ad;
+            background: #3b3230;
+        }
+
+        html[data-theme="dark"] .menu-copy p {
+            color: #c0b4a7;
+        }
+
+        html[data-theme="dark"] .menu-price {
+            color: #ddc394;
+        }
+
+        html[data-theme="dark"] .about-section {
+            background: #201c1d;
+        }
+
+        html[data-theme="dark"] .about-copy p {
+            color: #c9bfb4;
+        }
+
+        html[data-theme="dark"] .signature {
+            border-color: #594a40;
+            color: #ddc394;
+        }
+
         @media (max-width: 760px) {
             html {
                 scroll-padding-top: 68px;
@@ -792,12 +909,17 @@
                 <span class="wordmark-seal" aria-hidden="true">L</span>
                 <span>느린 황금시간</span>
             </a>
-            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="메뉴 열기">☰</button>
             <nav class="main-nav" id="main-nav" aria-label="주요 메뉴">
                 <a href="#about">주인장 소개</a>
                 <a href="#menu">메뉴</a>
                 <a href="#visit">찾아오시는 길</a>
             </nav>
+            <div class="header-actions">
+                <button class="theme-toggle" type="button" aria-label="다크 모드로 전환" aria-pressed="false">
+                    <span aria-hidden="true">☾</span>
+                </button>
+                <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="메뉴 열기">☰</button>
+            </div>
         </div>
     </header>
 
@@ -942,6 +1064,8 @@
         const menuCards = document.querySelectorAll(".menu-card");
         const navToggle = document.querySelector(".nav-toggle");
         const mainNav = document.querySelector("#main-nav");
+        const themeToggle = document.querySelector(".theme-toggle");
+        const themeIcon = themeToggle.querySelector("span");
 
         filterButtons.forEach((button) => {
             button.addEventListener("click", () => {
@@ -966,6 +1090,17 @@
             navToggle.setAttribute("aria-expanded", String(!isOpen));
             navToggle.setAttribute("aria-label", isOpen ? "메뉴 열기" : "메뉴 닫기");
             mainNav.classList.toggle("is-open", !isOpen);
+        });
+
+        themeToggle.addEventListener("click", () => {
+            const isDark = document.documentElement.dataset.theme !== "dark";
+            document.documentElement.dataset.theme = isDark ? "dark" : "light";
+            themeToggle.setAttribute("aria-pressed", String(isDark));
+            themeToggle.setAttribute(
+                "aria-label",
+                isDark ? "라이트 모드로 전환" : "다크 모드로 전환"
+            );
+            themeIcon.textContent = isDark ? "☼" : "☾";
         });
 
         mainNav.querySelectorAll("a").forEach((link) => {
